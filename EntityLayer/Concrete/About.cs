@@ -9,7 +9,6 @@ namespace EntityLayer.Concrete
 {
     public class About
     {
-        [Key]
         public int AboutId { get; set; }
         public String AboutDetails1 { get; set; }
         public String AboutDetails2 { get; set; }

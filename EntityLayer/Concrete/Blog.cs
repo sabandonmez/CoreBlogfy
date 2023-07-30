@@ -9,7 +9,7 @@ namespace EntityLayer.Concrete
 {
     public class Blog
     {
-        [Key]
+        
         public int BlogId { get; set; }
         public String BlogTitle { get; set; }
         public String BlogContent { get; set; }

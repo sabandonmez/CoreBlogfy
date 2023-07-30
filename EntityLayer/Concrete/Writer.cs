@@ -9,7 +9,7 @@ namespace EntityLayer.Concrete
 {
     public  class Writer
     {
-        [Key]
+        
         public int WriterId { get; set; }
         public String WriterName { get; set; }
         public String WriterAbout { get; set; }
