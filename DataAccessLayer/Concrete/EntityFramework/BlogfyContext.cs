@@ -7,9 +7,9 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataAccessLayer.Concrete
+namespace DataAccessLayer.Concrete.EntityFramework
 {
-    public class BlogfyContext:DbContext
+    public class BlogfyContext : DbContext
     {
 
         public DbSet<About> Abouts { get; set; }
@@ -21,7 +21,7 @@ namespace DataAccessLayer.Concrete
 
 
 
-        public BlogfyContext(DbContextOptions<BlogfyContext> options) :base(options)
+        public BlogfyContext(DbContextOptions<BlogfyContext> options) : base(options)
         {
 
         }
