@@ -28,7 +28,7 @@ namespace BusinessLayer.Concrete
             repositoryManager.Blog.Remove(blog);
         }
 
-        public Blog GetOneBlog(int id)
+		public Blog GetOneBlog(int id)
         {
             return repositoryManager.Blog.GetOneBlog(id);
         }

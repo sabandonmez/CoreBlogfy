@@ -14,6 +14,7 @@ namespace DataAccessLayer.Abstract
         void CreateBlog(Blog blog);
         void DeleteOneBlog(Blog blog);
         void UpdateOneBlog(Blog blog);
+    
 
-    }
+	}
 }

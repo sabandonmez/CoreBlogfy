@@ -14,5 +14,6 @@ namespace DataAccessLayer.Abstract
         void CreateCategory(Category category);
         void DeleteOneCategory(Category category);
         void UpdateOneCategory(Category category);
+
     }
 }
