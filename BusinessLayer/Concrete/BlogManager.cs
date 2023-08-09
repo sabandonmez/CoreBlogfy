@@ -4,6 +4,7 @@ using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -28,9 +29,15 @@ namespace BusinessLayer.Concrete
             repositoryManager.Blog.Remove(blog);
         }
 
+
 		public Blog GetOneBlog(int id)
         {
             return repositoryManager.Blog.GetOneBlog(id);
+        }
+
+        public IQueryable<Blog> GetByCategoryWithBlogs(params Expression<Func<Blog, object>>[] includes)
+        {
+            return repositoryManager.Blog.GetByCategoryWithBlogs(includes);
         }
 
         public List<Blog> ListAllBlog()

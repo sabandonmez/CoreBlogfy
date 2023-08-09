@@ -15,8 +15,9 @@ namespace CoreBlogfy.Controllers
 
 		public IActionResult Index()
         {
-            List<Blog> values = serviceManager.BlogService.ListAllBlog();
-            return View(values);
+			var blogs = serviceManager.BlogService.GetByCategoryWithBlogs(b => b.Category).ToList();
+			
+			return View(blogs);
         }
     }
 }

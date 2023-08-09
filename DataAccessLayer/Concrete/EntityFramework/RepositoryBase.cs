@@ -1,4 +1,6 @@
 ﻿using DataAccessLayer.Abstract;
+using EntityLayer.Concrete;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,17 +13,19 @@ namespace DataAccessLayer.Concrete.EntityFramework
     public class RepositoryBase<T> : IRepositoryBase<T> where T : class
     {
         private readonly BlogfyContext context;
+		
 
-        public RepositoryBase(BlogfyContext context)
+		public RepositoryBase(BlogfyContext context)
         {
             this.context = context;
-        }
+		
+		}
         public void Create(T entity)
         {
             context.Set<T>().Add(entity);
         }
-
-        public List<T> GetAll()
+		
+		public List<T> GetAll()
         {
             return context.Set<T>().ToList();
         }
@@ -40,5 +44,6 @@ namespace DataAccessLayer.Concrete.EntityFramework
         {
             context.Set<T>().Update(entity);
         }
-    }
+
+	}
 }

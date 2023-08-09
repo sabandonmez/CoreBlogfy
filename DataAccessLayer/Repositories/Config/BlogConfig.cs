@@ -14,6 +14,7 @@ namespace DataAccessLayer.Repositories.Config
         public void Configure(EntityTypeBuilder<Blog> builder)
         {
            builder.HasKey(b => b.BlogId);
+          
         }
     }
 }

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,7 +15,8 @@ namespace BusinessLayer.Abstract
         void CreateBlog(Blog blog);
         void DeleteOneBlog(Blog blog);
         void UpdateOneBlog(Blog blog);
-	
+        IQueryable<Blog> GetByCategoryWithBlogs(params Expression<Func<Blog, object>>[] includes);
+
 
 	}
 }

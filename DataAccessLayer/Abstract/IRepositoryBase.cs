@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EntityLayer.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -14,5 +15,7 @@ namespace DataAccessLayer.Abstract
         void Create(T entity);
         void Update(T entity);
         void Remove(T entity);
-    }
+		
+
+	}
 }
