@@ -29,16 +29,17 @@ namespace BusinessLayer.Concrete
             repositoryManager.Blog.Remove(blog);
         }
 
+		public List<Blog> GetListWithCategory()
+		{
+			return repositoryManager.Blog.GetListWithCategory();
+		}
 
 		public Blog GetOneBlog(int id)
         {
             return repositoryManager.Blog.GetOneBlog(id);
         }
 
-        public IQueryable<Blog> GetByCategoryWithBlogs(params Expression<Func<Blog, object>>[] includes)
-        {
-            return repositoryManager.Blog.GetByCategoryWithBlogs(includes);
-        }
+        
 
         public List<Blog> ListAllBlog()
         {

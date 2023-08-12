@@ -12,7 +12,7 @@ namespace DataAccessLayer.Concrete.EntityFramework
 {
     public class RepositoryBase<T> : IRepositoryBase<T> where T : class
     {
-        private readonly BlogfyContext context;
+        protected readonly BlogfyContext context;
 		
 
 		public RepositoryBase(BlogfyContext context)

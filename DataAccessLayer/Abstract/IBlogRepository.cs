@@ -15,8 +15,8 @@ namespace DataAccessLayer.Abstract
         Blog GetOneBlog(int id);
         void CreateBlog(Blog blog);
         void DeleteOneBlog(Blog blog);
-        void UpdateOneBlog(Blog blog);
-        IQueryable<Blog> GetByCategoryWithBlogs(params Expression<Func<Blog, object>>[] includes);
+        void UpdateOneBlog(Blog blog);      
+        List<Blog> GetListWithCategory();
 
 
 	}

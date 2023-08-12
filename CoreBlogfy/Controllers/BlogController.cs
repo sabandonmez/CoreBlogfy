@@ -7,7 +7,6 @@ namespace CoreBlogfy.Controllers
     public class BlogController:Controller
     {
         private readonly IServiceManager serviceManager;
-
 		public BlogController(IServiceManager serviceManager)
 		{
 			this.serviceManager = serviceManager;
@@ -15,9 +14,14 @@ namespace CoreBlogfy.Controllers
 
 		public IActionResult Index()
         {
-			var blogs = serviceManager.BlogService.GetByCategoryWithBlogs(b => b.Category).ToList();
+			var blogs = serviceManager.BlogService.GetListWithCategory();
 			
 			return View(blogs);
         }
+
+		public IActionResult BlogDetails(int id)
+		{
+			return View();
+		}
     }
 }

@@ -15,7 +15,7 @@ namespace BusinessLayer.Abstract
         void CreateBlog(Blog blog);
         void DeleteOneBlog(Blog blog);
         void UpdateOneBlog(Blog blog);
-        IQueryable<Blog> GetByCategoryWithBlogs(params Expression<Func<Blog, object>>[] includes);
+		List<Blog> GetListWithCategory();
 
 
 	}
