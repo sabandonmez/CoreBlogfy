@@ -1,6 +1,7 @@
 
 using BusinessLayer.Abstract;
 using BusinessLayer.Concrete;
+using CoreBlogfy.Infrastructe.Extensions;
 using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete.EntityFramework;
 using FluentValidation.AspNetCore;
@@ -9,27 +10,14 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews().AddFluentValidation(x=>
-x.RegisterValidatorsFromAssemblyContaining<Program>());
+builder.Services.AddControllersWithViews()
+                .AddFluentValidation(x=>x.RegisterValidatorsFromAssemblyContaining<Program>());
 
 
-builder.Services.AddScoped<IRepositoryManager, RepositoryManager>();
-builder.Services.AddScoped<ICategoryRepository,CategoryRepository>();
-builder.Services.AddScoped<IBlogRepository, BlogRepository>();
-
-builder.Services.AddScoped<IServiceManager, ServiceManager>();
-builder.Services.AddScoped<ICategoryService,CategoryManager>();
-builder.Services.AddScoped<IBlogService, BlogManager>();
-
-
-
-
-
-builder.Services.AddDbContext<BlogfyContext>(options =>
-{
-    options.UseSqlServer(builder.Configuration.GetConnectionString("sqlconnection"),
-     b => b.MigrationsAssembly("DataAccessLayer"));
-});
+builder.Services.ConfigureRepositoryRegistration();
+builder.Services.ConfigureServiceRegistration();
+builder.Services.ConfigureRouting();
+builder.Services.ConfigureDbContext(builder.Configuration);
 
 var app = builder.Build();
 
@@ -43,13 +31,11 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
-
 app.UseAuthorization();
-
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+app.UseConfigureAndCheckMigration();
 app.Run();
